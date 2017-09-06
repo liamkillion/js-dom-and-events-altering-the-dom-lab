@@ -1,28 +1,34 @@
 const expect = chai.expect;
 
 describe('index', () => {
-  describe('getFirstSelector(selector)', () => {
-    it('returns the first element that matches the selector', () => {
-      expect(getFirstSelector('div').id).to.equal('grand-node')
-      expect(getFirstSelector('.ranked-list')).to.equal(document.querySelector('.ranked-list'))
+  describe('removeDowntown()', () => {
+    it('removes the li with downtown as text', () => {
+      expect(document.querySelector('.ranked-list').innerHTML).to.include('Downtown')
+      removeDowntown()
+      expect(document.querySelector('.ranked-list').innerHTML).to.not.include('Downtown')
     })
   })
 
-  describe('rankedLis()', () => {
-    it('returns a Nodelist of list elements with the ranked towns', () => {
-      expect(rankedLis().length).to.equal(5)
-      expect(rankedLis()).to.be.a('nodelist')
-
-    })
-    it('selects on the ranked towns ranked towns', () => {
-      expect(Array.from(rankedLis()).map((el) => {return el.innerHTML })).to.have.same.members( ["Downtown", "Midtown", "Financial District", "Chelsea", "Flatiron District"])
+  describe('hideCompanyStrategy()', () => {
+    it('makes the company strategy hidden', () => {
+      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
+      hideCompanyStrategy()
+      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
     })
   })
 
-  describe('companyStrategy()', () => {
-    it("returns the deeply encouraging remark of 'We can do it!'", () => {
-      console.log(companyStrategy().innerHTML)
-      expect(companyStrategy().innerHTML.trim()).to.equal("We can do it!")
+  describe('displayCompanyStrategy()', () => {
+    it('makes the company strategy visible', () => {
+      hideCompanyStrategy()
+      showCompanyStrategy()
+      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
+    })
+  })
+
+  describe('changeTitle(title)', () => {
+    it('makes the text in the h1 to the argument', () => {
+      changeTitle("Not your grandfather's admin")
+      expect(document.querySelector('h1').innerHTML).to.include("Not your grandfather's admin")
     })
   })
 })
