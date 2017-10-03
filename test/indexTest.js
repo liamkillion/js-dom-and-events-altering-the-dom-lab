@@ -1,5 +1,6 @@
 const expect = chai.expect;
 
+
 describe('index', () => {
   describe('removeDowntown()', () => {
     it('removes the li with downtown as text', () => {
@@ -11,9 +12,10 @@ describe('index', () => {
 
   describe('hideCompanyStrategy()', () => {
     it('makes the company strategy hidden', () => {
-      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
+      
       hideCompanyStrategy()
-      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
+      expect(document.querySelector('#company-strategy').style.visibility).to.equal('hidden')
+
     })
   })
 
@@ -21,14 +23,7 @@ describe('index', () => {
     it('makes the company strategy visible', () => {
       hideCompanyStrategy()
       showCompanyStrategy()
-      expect(document.querySelector('body').innerHTML).to.include('Go get it!')
-    })
-  })
-
-  describe('changeTitle(title)', () => {
-    it('makes the text in the h1 to the argument', () => {
-      changeTitle("Not your grandfather's admin")
-      expect(document.querySelector('h1').innerHTML).to.include("Not your grandfather's admin")
+      expect(document.querySelector('#company-strategy')).to.not.equal('hidden')
     })
   })
 })
