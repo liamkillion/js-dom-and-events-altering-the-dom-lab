@@ -2,9 +2,9 @@ tags:
   - learn.co
   - flatiron school
   - javascript
-  - strings
-  - code-along
+  - events
+  - DOM
 languages:
   - javascript
 resources:
-  - 9
+  - 3
